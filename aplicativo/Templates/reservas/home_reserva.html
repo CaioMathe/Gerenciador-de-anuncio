@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+    <div style="display: flex; flex-direction: row; align-items: center;">
+        <h1>Reservas</h1>
+        <a href="http://127.0.0.1:8000/cadastro_reservas/" style="color: white;" class="ml-4 btn btn-warning">Cadastro de Reserva</a>
+    </div>
+    <div id="cards" class="mt-5 gap-5">
+        
+    </div>
+
+</div>
+
+
+
+<script>
+    $(document).ready(()=>{
+        let Url = 'http://127.0.0.1:8000/api-busca_reservas/'
+        $.ajax({
+            type : 'GET',
+            url : Url,
+            dataType: "json",
+            success: function(data){
+                // console.log(data)
+                $.each(data, function(index, value){
+                    console.log(value)
+                    $('#cards').append(`
+                    <div class="card" style="padding: 5px;">
+                        <span style="color: black;">Código: ${value.id_reserva}</span>
+                        <span style="color: black;">Check-in: ${formatDate(value.check_in)}</span>
+                        <span style="color: black;">Check-out: ${formatDate(value.check_out)}</span>
+
+                        <div>
+                            
+                            <a href="javascript:Delete(${value.id_reserva})" id='delete' class="btn btn-danger">Deletar</a>
+                            <a href="http://127.0.0.1:8000/editar_reservas/${value.id_reserva}" class="btn btn-info">Visualizar</a>
+                           
+                        </div>
+                    </div>
+                    `)
+                });
+            },
+            error:function(data){
+
+            }
+        });
+    })
+
+  function Delete(id) { 
+        
+        let URL = `http://127.0.0.1:8000/delete/reservas/${id}`;
+
+        $.ajax({
+            async: true,
+            url:URL,
+            method:'DELETE',
+            success: function(result){
+                location.reload();
+            },
+            error:function(result){
+                alert("Imovel não deletado!");
+                location.reload();
+            }
+        });
+
+    }
+
+</script>
+
+{% endblock %}

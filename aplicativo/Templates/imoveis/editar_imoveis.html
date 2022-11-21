@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="org">
+    <div class="col-md-4 rounded shadow-lg bg-body">
+        <h1 style="color: orange;">Edição de Imóvel</h1>
+        <form action="" method="POST" id="publicar_imovel" class="form">
+            {% csrf_token %}
+            <div class="form-group">
+                 <label for="id">Código do Imóvel</label>   
+                <input type="number" name="id" id="id" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+                <label for="limite_hospedes">quantidade de Hóspedes</label>   
+                <input type="number" name="limite_hospedes" id="limite_hospedes" class="form-control" required>
+           </div>
+           <div class="form-group">
+                <label for="nome">Nome</label>   
+                <input type="text" name="nome" id="nome" class="form-control" required>
+    
+           </div>
+            <div class="form-group">
+                <label for="banheiros">Quantidade de Banheiros</label>   
+                <input type="number" name="banheiros" id="banheiros" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="vlr_limpeza">Valor da limpeza</label>   
+                <input type="number" step="0.01" name="vlr_limpeza" id="vlr_limpeza" class="form-control" required>
+    
+            </div>
+            <div class="form-group">
+                <label for="data_ativacao">Data da Ativação</label>   
+                <input type="date" name="data_ativacao" id="data_ativacao" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="permite_animais">Permitir Animais?</label>   
+                <input type="checkbox" name="permite_animais" id="permite_animais"  >
+            </div>
+        
+        <div class="ml-5">
+            <input type="submit" value="Finalizar edição" class="btn btn-primary mb-2">
+            <a href="/" class="btn btn-warning mb-2">Voltar</a>
+        </div>
+        </form>
+    </div>
+
+</div>
+
+
+
+
+<script>
+    $(document).ready(()=>{
+        
+        let href = window.location.href;
+        let id = href.replace('http://127.0.0.1:8000/editar_imovel/', '')
+        let Url = `http://127.0.0.1:8000/buscar/imoveis/${id}`
+        $.ajax({
+            type : 'GET',
+            url : Url,
+            dataType: "json",
+            success: function(data){
+                $("#id").val(`${data[0].id}`)
+                $("#limite_hospedes").val(`${data[0].limite_hospedes}`)
+                $("#nome").val(`${data[0].nome}`)
+                $("#banheiros").val(`${data[0].banheiros}`)
+                $("#vlr_limpeza").val(`${data[0].vlr_limpeza}`)
+                $("#data_ativacao").val(`${data[0].data_ativacao}`)
+                if(data[0].permite_animais == true){
+                    $('#permite_animais').prop('checked', true)
+                } 
+            },
+            error:function(data){
+
+            }
+        });
+    })
+
+
+    $('#publicar_imovel').on('submit', function(e) { 
+            e.preventDefault();  
+            let href = window.location.href;
+            let id = href.replace('http://127.0.0.1:8000/editar_imovel/', '')
+            let Url = `http://127.0.0.1:8000/editar/imovel/${id}`
+
+        $.ajax({
+            type : 'PUT',
+            url : Url,
+            data : $("#publicar_imovel :input").serializeArray(),
+            dataType: "json",
+            success: function(data){
+                console.log(data)
+                alert("Sucesso!");
+                location.href= 'http://127.0.0.1:8000';
+            },
+            error:function(data){
+                alert("Erro não foi possivel fazer a alteração!");
+                location.reload();
+            }
+        });
+    });
+</script>
+{% endblock %}

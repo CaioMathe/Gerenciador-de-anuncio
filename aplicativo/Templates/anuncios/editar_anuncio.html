@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="org">
+    <div class="col-md-4 rounded shadow-lg bg-body">
+        <h1 style="color: orange;">Edição de Anúncio</h1>
+        <form action="" method="POST" id="publicar_anuncio" class="form">
+            {% csrf_token %}
+            <div class="form-group">
+                 <label for="id_anuncio">Código do Anúncio</label>   
+                <input type="number" name="id_anuncio" id="id_anuncio" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+                <label for="id_imovel">Código do Imóvel</label>   
+                <input type="number" name="id_imovel" id="id_imovel" class="form-control">
+           </div>
+           <div class="form-group">
+                <label for="plataforma_anuncio">Nome da Plataforma de Anúncio</label>   
+                <input type="text" name="plataforma_anuncio" id="plataforma_anuncio" class="form-control" required>
+    
+           </div>
+            <div class="form-group">
+                <label for="taxa_plataforma">Taxa da Plataforma</label>   
+                <input type="number" step="0.01" name="taxa_plataforma" id="taxa_plataforma" class="form-control" required>
+            </div>
+           
+        <div class="ml-5">
+            <input type="submit" value="Editar" class="btn btn-primary mb-2">
+            <a href="/anuncios/" class="btn btn-warning mb-2">Voltar</a>
+        </div>
+        </form>
+    </div>
+
+</div>
+
+
+
+<script>
+    $(document).ready(()=>{
+        
+        
+        let href = window.location.href;
+        let id = href.replace('http://127.0.0.1:8000/editar_anuncio/', '')
+        let Url = `http://127.0.0.1:8000/api-busca_anuncio/${id}`
+        $.ajax({
+            type : 'GET',
+            url : Url,
+            dataType: "json",
+            success: function(data){
+                $("#id_imovel").val(`${data[0].id_imovel}`)
+                $("#id_anuncio").val(`${data[0].id_anuncio}`)
+                $("#plataforma_anuncio").val(`${data[0].plataforma_anuncio}`)
+                $("#taxa_plataforma").val(`${data[0].taxa_plataforma}`)
+
+            },
+            error:function(data){
+
+            }
+        });
+    })
+
+
+    $('#publicar_anuncio').on('submit', function(e) { 
+            e.preventDefault();  
+            let href = window.location.href;
+            let id = href.replace('http://127.0.0.1:8000/editar_anuncio/', '')
+            let Url = `http://127.0.0.1:8000/editar/anuncio/${id}`
+
+        $.ajax({
+            type : 'PUT',
+            url : Url,
+            data : $("#publicar_anuncio :input").serializeArray(),
+            dataType: "json",
+            success: function(data){
+                console.log(data)
+                alert("Sucesso!");
+                location.href= 'http://127.0.0.1:8000/anuncios/';
+            },
+            error:function(data){
+                alert("Erro não foi possivel fazer a alteração!");
+                location.reload();
+            }
+        });
+    });
+</script>
+{% endblock %}

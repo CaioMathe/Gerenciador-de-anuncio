@@ -1,0 +1,77 @@
+[
+    {
+        "model": "aplicativo.Imoveis",
+        "pk": 1,
+        "fields": {
+            "id": 1,
+            "limite_hospedes": 20,
+            "banheiros": 2,
+            "permite_animais": true,
+            "vlr_limpeza" : 10.0,
+            "data_ativacao": "2022-11-19",
+            "nome": "Casa - Campos do Jordão",
+            "data_criacao": "2022-11-20 20:30:31.327690",
+            "data_atualizacao" : "2022-11-20 20:30:31.327690"
+        }
+    },
+    {
+        "model": "aplicativo.Imoveis",
+        "pk": 2,
+        "fields": {
+            "id": 2,
+            "limite_hospedes": 30,
+            "banheiros": 4,
+            "permite_animais": false,
+            "vlr_limpeza" : 30.0,
+            "data_ativacao": "2022-10-01",
+            "nome": "Hotel - Hortelandia",
+            "data_criacao": "2022-09-20 00:00:00",
+            "data_atualizacao" : "2022-10-01 05:30:40"
+        }
+    },
+    {
+        "model": "aplicativo.Imoveis",
+        "pk": 3,
+        "fields": {
+            "id": 3,
+            "limite_hospedes": 10,
+            "banheiros": 1,
+            "permite_animais": true,
+            "vlr_limpeza" : 5,
+            "data_ativacao": "2022-11-01",
+            "nome": "Casa - Dona Maria",
+            "data_criacao": "2022-11-20 06:30:40",
+            "data_atualizacao" : "2022-11-20 06:30:40"
+        }
+    },
+    {
+        "model": "aplicativo.Imoveis",
+        "pk": 4,
+        "fields": {
+            "id": 4,
+            "limite_hospedes": 60,
+            "banheiros": 6,
+            "permite_animais": true,
+            "vlr_limpeza" : 30.0,
+            "data_ativacao": "2022-10-05",
+            "nome": "Salão de festa - Vila Maria",
+            "data_criacao": "2022-10-01 08:40:20",
+            "data_atualizacao" : "2022-10-02 09:10:10"
+        }
+    },
+    {
+        "model": "aplicativo.Imoveis",
+        "pk": 5,
+        "fields": {
+            "id": 5,
+            "limite_hospedes": 40,
+            "banheiros": 3,
+            "permite_animais": false,
+            "vlr_limpeza" : 30.0,
+            "data_ativacao": "2022-10-01",
+            "nome": "Hotel - Hortelandia",
+            "data_criacao": "2022-01-20 00:00:00",
+            "data_atualizacao" : "2022-10-01 05:30:40"
+        }
+    }
+]

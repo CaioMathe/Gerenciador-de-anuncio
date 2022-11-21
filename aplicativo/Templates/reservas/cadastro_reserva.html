@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="org">
+    <div class="col-md-4 rounded shadow-lg bg-body">
+        <h1 style="color: orange;">Cadastro de Reserva</h1>
+        <form action="" method="POST" id="cadastrar_reserva" class="form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_anuncio">Código do Anúncio</label>   
+                <input type="number" name="id_anuncio" id="id_anuncio" class="form-control">
+           </div>
+           <div class="form-group">
+                <label for="check_in">check-in:</label>   
+                <input type="date" name="check_in" id="check_in" class="form-control" required>
+    
+           </div>
+            <div class="form-group">
+                <label for="check_out">Check-out:</label>   
+                <input type="date" name="check_out" id="check_out" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="vlr_total">Valor total:</label>   
+                <input type="number" step="0.01" name="vlr_total" id="vlr_total" class="form-control">
+           </div>
+           <div class="form-group">
+                <label for="comentario">Comentarios:</label>   
+                <input type="text" name="comentario" id="comentario" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="hospedes">Quantidade de Hóspedes:</label>   
+                <input type="number" name="hospedes" id="hospedes" class="form-control">
+            </div>
+        <div class="ml-5 mt-2">
+            <input type="submit" value="Cadastrar" class="btn btn-primary mb-2">
+            <a href="/reservas/" class="btn btn-warning mb-2">Voltar</a>
+        </div>
+        </form>
+    </div>
+
+</div>
+
+
+
+
+<script>
+
+    $('#cadastrar_reserva').on('submit', function(e) { 
+            e.preventDefault();  
+
+            let Url = "http://127.0.0.1:8000/api-cadastro_reservas/";
+
+        $.ajax({
+            type : 'POST',
+            url : Url,
+            data : $("#cadastrar_reserva :input").serializeArray(),
+            dataType: "json",
+            success: function(data){
+                alert("Sucesso!");
+                location.href= 'http://127.0.0.1:8000/reservas/';
+            },
+            error:function(data){
+                alert("Erro não foi adicionado!");
+                // console.log(data)
+                location.reload();
+            }
+        });
+    });
+
+
+</script>
+{% endblock %}

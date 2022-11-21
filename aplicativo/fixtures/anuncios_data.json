@@ -1,0 +1,38 @@
+[
+    {
+        "model": "aplicativo.Anuncios",
+        "pk": 1,
+        "fields": {
+            "id_anuncio" : 1,
+            "plataforma_anuncio" : "Facebook",
+            "taxa_plataforma" : 2,
+            "data_atualizacao" : "2022-11-17 20:30:32",
+            "data_criacao": "2022-11-17 20:30:32",
+            "id_imovel" : "2"
+        }
+    },
+    {
+        "model": "aplicativo.Anuncios",
+        "pk": 2,
+        "fields": {
+            "id_anuncio" : 2,
+            "plataforma_anuncio" : "Quinto Andar",
+            "taxa_plataforma" : 4,
+            "data_atualizacao" : "2022-11-20 06:20:32",
+            "data_criacao": "2022-11-20 06:10:02",
+            "id_imovel" : "2"
+        }
+    },
+    {
+        "model": "aplicativo.Anuncios",
+        "pk": 3,
+        "fields": {
+            "id_anuncio" : 3,
+            "plataforma_anuncio" : "AirBnb",
+            "taxa_plataforma" : 6,
+            "data_atualizacao" : "2022-11-20 05:30:32",
+            "data_criacao": "2022-11-20 05:30:32",
+            "id_imovel" : "4"
+        }
+    }
+]

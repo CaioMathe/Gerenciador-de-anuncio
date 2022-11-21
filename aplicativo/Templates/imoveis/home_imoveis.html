@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block content %}
+
+</style>
+<div>
+    <div style="display: flex; flex-direction: row; align-items: center;">
+        <h1>Imóveis</h1>
+        <a href="http://127.0.0.1:8000/cadastro_imoveis" style="color: white;" class="ml-4 btn btn-warning">Cadastro de Imóveis</a>
+    </div>
+    <div id="cards" class="mt-5 gap-5">
+        
+    </div>
+
+</div>
+
+
+
+<script>
+    $(document).ready(()=>{
+        let Url = 'http://127.0.0.1:8000/buscar/imoveis'
+        $.ajax({
+            type : 'GET',
+            url : Url,
+            dataType: "json",
+            success: function(data){
+                console.log(data)
+                $.each(data, function(index, value){
+                    $('#cards').append(`
+                    <div class="card" style="padding: 5px;">
+                        <span style="color: black;">Código: ${value.id}</span>
+                        <span style="color: black;">Nome: ${value.nome}</span>
+                        <div>
+                            
+                            <a href="javascript:Delete(${value.id})" id='delete' class="btn btn-danger">Deletar</a>
+                            <a href="http://127.0.0.1:8000/editar_imovel/${value.id}" class="btn btn-info">Editar</a>
+                           
+                        </div>
+                    </div>
+                    `)
+                });
+            },
+            error:function(data){
+
+            }
+        });
+    })
+
+  function Delete(id) { 
+        
+        let URL = `http://127.0.0.1:8000/delete/imovel/${id}`;
+
+        $.ajax({
+            async: true,
+            url:URL,
+            method:'DELETE',
+            success: function(result){
+                location.reload();
+            },
+            error:function(result){
+                alert("Imovel não deletado!");
+                location.reload();
+            }
+        });
+
+    }
+
+</script>
+
+{% endblock %}

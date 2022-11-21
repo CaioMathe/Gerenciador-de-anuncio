@@ -1,0 +1,123 @@
+[
+    {
+        "model": "aplicativo.Reservas",
+        "pk": 1,
+        "fields": {
+            "id_reserva" : "1",
+            "id_anuncio" : "2",
+            "check_in" : "2022-11-20",
+            "check_out" : "2022-11-25", 
+            "vlr_total" : 500,
+            "comentario": "Obs: Verificar datas de check-in e check-out",
+            "hospedes" : "1",
+            "data_criacao": "2022-11-20 13:30:22",
+            "data_atualizacao" : "2022-11-21 10:20:32"
+        }
+    },
+    {
+        "model": "aplicativo.Reservas",
+        "pk": 2,
+        "fields": {
+            "id_reserva" : "2",
+            "id_anuncio" : "2",
+            "check_in" : "2022-11-11",
+            "check_out" : "2022-11-13", 
+            "vlr_total" : 200,
+            "comentario": "Obs: Verificar datas de check-in e check-out",
+            "hospedes" : "1",
+            "data_criacao": "2022-11-11 11:30:22",
+            "data_atualizacao" : "2022-11-12 08:20:32"
+        }
+    },
+    {
+        "model": "aplicativo.Reservas",
+        "pk": 3,
+        "fields": {
+            "id_reserva" : "3",
+            "id_anuncio" : "1",
+            "check_in" : "2022-12-10",
+            "check_out" : "2022-12-20", 
+            "vlr_total" : 1500,
+            "comentario": "Obs: Verificar datas de check-in e check-out",
+            "hospedes" : "2",
+            "data_criacao": "2022-11-10 10:10:27",
+            "data_atualizacao" : "2022-11-20 07:30:32"
+        }
+    },
+    {
+        "model": "aplicativo.Reservas",
+        "pk": 4,
+        "fields": {
+            "id_reserva" : "4",
+            "id_anuncio" : "1",
+            "check_in" : "2022-10-02",
+            "check_out" : "2022-10-10", 
+            "vlr_total" : 800,
+            "comentario": "Obs: Verificar datas de check-in e check-out",
+            "hospedes" : "1",
+            "data_criacao": "2022-09-20 13:30:22",
+            "data_atualizacao" : "2022-09-20 13:30:22"
+        }
+    },
+    {
+        "model": "aplicativo.Reservas",
+        "pk": 5,
+        "fields": {
+            "id_reserva" : "5",
+            "id_anuncio" : "1",
+            "check_in" : "2022-12-05",
+            "check_out" : "2022-12-10", 
+            "vlr_total" : 500,
+            "comentario": "Obs: Verificar datas de check-in e check-out",
+            "hospedes" : "1",
+            "data_criacao": "2022-12-01 10:20:02",
+            "data_atualizacao" : "2022-12-01 10:20:02"
+        }
+    },
+    {
+        "model": "aplicativo.Reservas",
+        "pk": 6,
+        "fields": {
+            "id_reserva" : "6",
+            "id_anuncio" : "3",
+            "check_in" : "2022-12-07",
+            "check_out" : "2022-12-10", 
+            "vlr_total" : 300,
+            "comentario": "Obs: Verificar datas de check-in e check-out",
+            "hospedes" : "3",
+            "data_criacao": "2022-12-05 10:20:02",
+            "data_atualizacao" : "2022-12-05 10:20:02"
+        }
+    },
+    {
+        "model": "aplicativo.Reservas",
+        "pk": 7,
+        "fields": {
+            "id_reserva" : "7",
+            "id_anuncio" : "3",
+            "check_in" : "2022-12-09",
+            "check_out" : "2022-12-13", 
+            "vlr_total" : 400,
+            "comentario": "Obs: Verificar datas de check-in e check-out",
+            "hospedes" : "3",
+            "data_criacao": "2022-12-08 06:20:02",
+            "data_atualizacao" : "2022-12-09 07:20:07"
+        }
+    },
+    {
+        "model": "aplicativo.Reservas",
+        "pk": 8,
+        "fields": {
+            "id_reserva" : "8",
+            "id_anuncio" : "3",
+            "check_in" : "2022-12-10",
+            "check_out" : "2022-12-13", 
+            "vlr_total" : 400,
+            "comentario": "Obs: Verificar datas de check-in e check-out",
+            "hospedes" : "3",
+            "data_criacao": "2022-12-01 09:20:02",
+            "data_atualizacao" : "2022-12-09 07:20:07"
+        }
+    }
+
+]

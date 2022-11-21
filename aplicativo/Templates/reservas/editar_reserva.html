@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="org">
+    <div class="col-md-4 rounded shadow-lg bg-body">
+        <h1 style="color: orange;">Cadastro de Reserva</h1>
+        <form action="" method="POST" id="cadastrar_reserva" class="form">
+            {% csrf_token %}
+            <div class="form-group">
+                 <label for="id_reserva">Código da Reserva</label>   
+                <input type="number" name="id_reserva" id="id_reserva" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+                <label for="id_anuncio">Código do Anúncio</label>   
+                <input type="number" name="id_anuncio" id="id_anuncio" class="form-control" readonly>
+           </div>
+           <div class="form-group">
+                <label for="check_in">check-in:</label>   
+                <input type="date" name="check_in" id="check_in" class="form-control" readonly>
+    
+           </div>
+            <div class="form-group">
+                <label for="check_out">Check-out:</label>   
+                <input type="date" name="check_out" id="check_out" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+                <label for="vlr_total">Valor total:</label>   
+                <input type="number" step="0.01" name="vlr_total" id="vlr_total" class="form-control" readonly>
+           </div>
+           <div class="form-group">
+                <label for="comentario">Comentarios:</label>   
+                <input type="text" name="comentario" id="comentario" class="form-control"readonly>
+            </div>
+            <div class="form-group">
+                <label for="hospedes">Quantidade de Hóspedes:</label>   
+                <input type="number" name="hospedes" id="hospedes" class="form-control"readonly>
+            </div>
+        <div class="ml-5 mt-2">
+            <a href="/reservas/" class="btn btn-warning mb-2">Voltar</a>
+        </div>
+        </form>
+    </div>
+
+</div>
+
+
+
+
+<script>
+    $(document).ready(()=>{
+        
+        
+        let href = window.location.href;
+        let id = href.replace('http://127.0.0.1:8000/editar_reservas/', '')
+        let Url = `http://127.0.0.1:8000/api-busca_reservas/${id}`
+        $.ajax({
+            type : 'GET',
+            url : Url,
+            dataType: "json",
+            success: function(data){
+                $("#id_reserva").val(`${data[0].id_reserva}`)
+                $("#id_anuncio").val(`${data[0].id_anuncio}`)
+                $("#check_in").val(`${data[0].check_in}`)
+                $("#check_out").val(`${data[0].check_out}`)
+                $("#comentario").val(`${data[0].comentario}`)
+                $("#hospedes").val(`${data[0].hospedes}`)
+                $("#vlr_total").val(`${data[0].vlr_total}`)
+
+            },
+            error:function(data){
+
+            }
+        });
+    })
+
+</script>
+{% endblock %}

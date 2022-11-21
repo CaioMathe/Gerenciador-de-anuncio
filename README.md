@@ -9,7 +9,9 @@ Banco de dados: Sqlite3
 
 Para executar: 
 
-1° Fazer um git clone para a maquina de teste.
+0° Fazer um git clone para a maquina de teste.
+
+1° Ativar a vitual env.
 
 2° Realizar a instalação das bibliotecas utilizadas com o seguinte comando no terminal: "pip install -r requirements.txt".
 

@@ -37,7 +37,7 @@ Post (Insert no banco de dados):</br>
     api-cadastro_anuncio/</br>
     
 Put (Update no banco de dados):</br>
-    editar/anuncio/(Sendo necessário passar um id) </b</br>r>
+    editar/anuncio/(Sendo necessário passar um id) </b>
     editar/imovel/(Sendo necessário passar um id) 
     
 Delete (Delete no banco de dados):</br>

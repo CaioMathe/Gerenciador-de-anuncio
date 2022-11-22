@@ -22,7 +22,7 @@ Para executar:
 4° Para iniciar as fixures executar nessa sequencia os códigos: python manage.py loaddata imoveis_data.json, python manage.py loaddata anuncios_data.json, python manage.py loaddata reservas_data.json.
 
 
-5° Após finalizar as instalações usar o comando: "python main.py runserver" para iniciar a aplicação.
+5° Após finalizar as instalações usar o comando: "python manage.py runserver" para iniciar a aplicação.
 
 Todas as api's listadas abaixo:
 

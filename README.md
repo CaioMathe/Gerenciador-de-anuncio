@@ -11,12 +11,12 @@ Para executar:
 
 0° Fazer um git clone para a maquina de teste.
 
-1° Ativar a vitual env.
+1° Ativar a virtual env.
 
 2° Realizar a instalação das bibliotecas utilizadas com o seguinte comando no terminal: "pip install -r requirements.txt".
 
 
-3° Para criar o banco de dados primeiramente executar o comando: python manage.py makemigrations aplicativo, logo após executar: python manage.py migrate aplicativo
+3° Para criar o banco de dados primeiramente executar o comando: cd aplicativo (para entrar na pasta), python manage.py makemigrations aplicativo, logo após executar: python manage.py migrate aplicativo
 
 
 4° Para iniciar as fixures executar nessa sequencia os códigos: python manage.py loaddata imoveis_data.json, python manage.py loaddata anuncios_data.json, python manage.py loaddata reservas_data.json.

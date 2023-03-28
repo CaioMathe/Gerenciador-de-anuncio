@@ -1,4 +1,4 @@
-# Seazone-Code-Challenge
+# Code-Challenge
 
 O projeto consiste no desenvolvimento de Api's com django rest para desenvolver um sistema de gerenciamento de imóveis, onde faz a integração de 3 tabelas distintas para a execução do sistema, onde pode criar um imóvel, vários anúncio para para esse imóvel e várias reservas para esse anúncio que está relacionado ao imóvel. Projeto com front-end que faz a execução de todas as api's: search, insert, updates e deletes.
 

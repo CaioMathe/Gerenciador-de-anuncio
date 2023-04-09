@@ -9,7 +9,7 @@ Banco de dados: Sqlite3
 
 Para executar: 
 
-0° Fazer um git clone para a maquina de teste.
+0° Fazer um git clone para a máquina de teste.
 
 1° Ativar a virtual env.
 
